@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://sx4flyf1cs4o"]
+[gd_scene load_steps=10 format=3 uid="uid://sx4flyf1cs4o"]
 
 [ext_resource type="Script" uid="uid://cc11uyrd7gfr6" path="res://Scripts/slime.gd" id="1_g53nw"]
 [ext_resource type="Texture2D" uid="uid://bl53gpvg5mh1y" path="res://Assets/sprites/slime_green.png" id="1_u213d"]
+[ext_resource type="Script" uid="uid://ccbruasvtk1bg" path="res://Scripts/slime_area_2d.gd" id="3_ruoba"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g53nw"]
 atlas = ExtResource("1_u213d")
@@ -51,6 +52,7 @@ autoplay = "default"
 frame_progress = 0.0704472
 
 [node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("3_ruoba")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, 4.5)
@@ -63,3 +65,6 @@ target_position = Vector2(-5, 0)
 [node name="RayCast2DRight" type="RayCast2D" parent="."]
 position = Vector2(7, 0)
 target_position = Vector2(5, 0)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

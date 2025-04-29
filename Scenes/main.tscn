@@ -195,7 +195,7 @@ position = Vector2(35, 10)
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(1.19209e-07, 2)
 scale = Vector2(-14947.5, 1128.72)
-zoom = Vector2(4.4, 4.4)
+zoom = Vector2(8, 8)
 position_smoothing_enabled = true
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -216,7 +216,7 @@ theme_override_fonts/font = ExtResource("6_21xkr")
 theme_override_font_sizes/font_size = 16
 text = "空格 跳跃
 A 后退
-W 前进"
+D 前进"
 
 [node name="conin2" parent="." instance=ExtResource("3_8gbba")]
 position = Vector2(463, 24)

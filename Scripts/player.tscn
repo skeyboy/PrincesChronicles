@@ -99,7 +99,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"hit",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -192,8 +192,16 @@ position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_uwfu8")
 animation = &"hit"
 autoplay = "hit"
-frame_progress = 0.969833
+frame_progress = 0.213113
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3)
 shape = SubResource("CircleShape2D_3eola")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -8.0
+offset_top = -18.0
+offset_right = 32.0
+offset_bottom = 5.0
+scale = Vector2(0.245751, 0.226981)
+text = "Life"
