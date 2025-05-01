@@ -29,9 +29,19 @@ func on_area_2d_body_entered(_body: Node2D) -> void:
 	if isDie :
 		return
 	isHited = true
-	animated_sprite.animation_finished.connect(_on_player_hit_finished,CONNECT_ONE_SHOT)
+	
 	_decrement_life()
-	animated_sprite.play("hit")
+	if totalLife >= 1 :
+		animated_sprite.animation_finished.connect(_on_player_hit_finished,CONNECT_ONE_SHOT)
+		animated_sprite.play("hit")
+	else:
+		if is_on_floor():
+			velocity.y = JUMP_VELOCITY
+		else:
+			velocity.y = JUMP_VELOCITY * 2
+		isDie = true
+		animated_sprite.animation_finished.connect(_on_player_die_finished,CONNECT_ONE_SHOT)
+		animated_sprite.play("die")
 	pass
 	
 const SPEED = 130.0
@@ -55,7 +65,8 @@ func _decrement_life():
 	pass
 	
 func _update_life():
-	life_label.text = str(totalLife) + " Life"
+	if totalLife > 0:
+		life_label.text = str(totalLife) + " Life"
 	
 func _process(_delta: float) -> void:
 	if  game_manger != null:
