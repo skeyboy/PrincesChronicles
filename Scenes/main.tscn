@@ -449,9 +449,9 @@ defaultScore = 3
 position = Vector2(723, 6)
 
 [node name="Platform" parent="." instance=ExtResource("9_ynf5e")]
-visible = false
-position = Vector2(110, 90)
+position = Vector2(48, 84)
 platform_type = 1
+can_jump_down = true
 
 [node name="Platform2" parent="." instance=ExtResource("9_ynf5e")]
 position = Vector2(675, 40)
