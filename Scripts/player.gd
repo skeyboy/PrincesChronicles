@@ -17,8 +17,24 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if  game_manger != null:
 		game_manger.bindPlayer(self)
+	if Input.is_action_just_pressed("fire"):
+		var direction = 1
+		if animated_sprite.is_flipped_h():
+			direction = -1
+		var fireball = preload("res://Scripts/enemy_weapons/fireball.tscn").instantiate() as Fireball
+		fireball.setParentSpeed(SPEED)
+		fireball.vertical_speed = 80
+		fireball.direction = direction
+
+		# fireball 再角色前方一定距离
+		fireball.global_position = Vector2(global_position.x + 16 * direction,global_position.y)
+		get_tree().root.add_child(fireball)
+		fireball.tryBindGameManager( game_manger)
+		
+		pass
 
 func _physics_process(delta):
+	
 	if isDie:
 		return;
 	if not is_on_floor():

@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bbxjnpy34yeyj" path="res://Assets/sprites/fireball/fireball4.png" id="4_2g4ji"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h0ohb"]
-radius = 2.11964
+radius = 4.88491
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_c0kx0"]
 animations = [{
@@ -30,19 +30,21 @@ animations = [{
 }]
 
 [node name="Fireball" type="Area2D"]
+z_index = 1
 script = ExtResource("1_dad71")
 weapons_tag = "Fireball"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(0.943555, 1)
+visible = false
+scale = Vector2(0.711361, 0.753916)
 shape = SubResource("CircleShape2D_h0ohb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.372819, 0.39212)
+scale = Vector2(0.889389, 0.934665)
 sprite_frames = SubResource("SpriteFrames_c0kx0")
 animation = &"fireball"
 autoplay = "fireball"
-frame_progress = 0.322933
+frame_progress = 0.483426
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 rotation = -5.68628

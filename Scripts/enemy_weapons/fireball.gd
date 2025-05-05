@@ -6,11 +6,13 @@ class_name Fireball;
 
 func _process(delta):
 	position.x += delta * horizontal_speed * direction
-	position.y += delta * vertical_speed * direction
+	position.y += delta * vertical_speed
 
 func setParentSpeed(speed) -> void:
 	self.horizontal_speed += speed
-	
+func on_area_entered(area: Area2D) -> void:
+	if area.get_parent() is Slime:
+		(area.get_parent() as Slime).on_die()
 func on_body_entered(body: Node2D) -> void:
 	if body is GamePlayer:
 		print(str(game_manger))

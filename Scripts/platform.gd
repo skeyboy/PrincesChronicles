@@ -24,7 +24,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("move_down") and can_jump_down :
 		set_collision_layer_value(1,false)		
-		timer.start(0.25)
+		timer.start(0.1)
 	pass
 
 

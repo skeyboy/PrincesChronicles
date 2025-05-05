@@ -11,13 +11,20 @@ class_name  Slime;
 const SPEED = 60
 
 var direction = 1
-
-
-func _ready() -> void:
+var isDieing = false
+func _on_die_finished():
+	queue_free()
 	
+func on_die()->void:
+	isDieing = true
+	animated_sprite.animation_finished.connect(_on_die_finished, ConnectFlags.CONNECT_ONE_SHOT)
+	animated_sprite.play("die")
+func _ready() -> void:
 	pass
 	
 func _process(delta):
+	if isDieing:
+		return
 	
 	if ray_cast_right.is_colliding():
 		direction = -1

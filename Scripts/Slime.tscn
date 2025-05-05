@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://sx4flyf1cs4o"]
+[gd_scene load_steps=15 format=3 uid="uid://sx4flyf1cs4o"]
 
 [ext_resource type="Script" uid="uid://cc11uyrd7gfr6" path="res://Scripts/slime.gd" id="1_g53nw"]
 [ext_resource type="Texture2D" uid="uid://bl53gpvg5mh1y" path="res://Assets/sprites/slime_green.png" id="1_u213d"]
+[ext_resource type="Texture2D" uid="uid://bwoec51f6mei0" path="res://Assets/sprites/slime_purple.png" id="3_5r5f5"]
 [ext_resource type="Script" uid="uid://ccbruasvtk1bg" path="res://Scripts/slime_area_2d.gd" id="3_ruoba"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g53nw"]
@@ -19,6 +20,22 @@ region = Rect2(48, 24, 24, 24)
 [sub_resource type="AtlasTexture" id="AtlasTexture_tel6i"]
 atlas = ExtResource("1_u213d")
 region = Rect2(72, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n888t"]
+atlas = ExtResource("3_5r5f5")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p7gm4"]
+atlas = ExtResource("3_5r5f5")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m4h1a"]
+atlas = ExtResource("3_5r5f5")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2td88"]
+atlas = ExtResource("3_5r5f5")
+region = Rect2(0, 0, 24, 24)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_n888t"]
 animations = [{
@@ -38,6 +55,23 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_n888t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p7gm4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m4h1a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2td88")
+}],
+"loop": false,
+"name": &"die",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u213d"]
@@ -48,8 +82,10 @@ script = ExtResource("1_g53nw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_n888t")
+animation = &"die"
 autoplay = "default"
-frame_progress = 0.0704472
+frame = 3
+frame_progress = 1.0
 
 [node name="Area2D" type="Area2D" parent="."]
 script = ExtResource("3_ruoba")
