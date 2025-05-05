@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cxuqjimd7csiq" path="res://Assets/sprites/platforms.png" id="1_wki81"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_edo2q"]
-size = Vector2(32, 10)
+size = Vector2(32, 6)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8igbo"]
 size = Vector2(32, 10)
@@ -14,7 +14,7 @@ z_index = 1
 script = ExtResource("1_8igbo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -4)
+position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_edo2q")
 one_way_collision = true
 
